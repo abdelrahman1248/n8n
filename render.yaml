@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: n8n
+    env: docker
+    plan: free
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: GENERIC_TIMEZONE
+        value: "Asia/Beirut"
+      - key: TZ
+        value: "Asia/Beirut"
+      - key: N8N_ENCRYPTION_KEY
+        generateValue: true
+      - key: WEBHOOK_URL
+        fromService:
+          type: web
+          name: n8n
+          property: url
+      - key: N8N_HOST
+        fromService:
+          type: web
+          name: n8n
+          property: host
+    autoDeploy: true
