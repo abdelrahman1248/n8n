@@ -1,11 +1,13 @@
-FROM n8nio/n8n:latest
+FROM node:18
 
-# Set timezone for the container
-ENV GENERIC_TIMEZONE=Asia/Beirut
-ENV TZ=Asia/Beirut
+# Install n8n
+RUN npm install -g n8n
 
-# Expose n8n default port
+# Create app directory
+WORKDIR /data
+
+# Expose n8n port
 EXPOSE 5678
 
-# Start n8n
+# Run n8n
 CMD ["n8n"]
