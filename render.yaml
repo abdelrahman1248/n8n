@@ -11,4 +11,9 @@ services:
         value: "Asia/Beirut"
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
-
+      - key: N8N_HOST
+        value: "n8n-automation.onrender.com"
+      - key: N8N_PROTOCOL
+        value: "https"
+      - key: WEBHOOK_URL
+        value: "https://n8n-automation.onrender.com/"
